@@ -1,0 +1,15 @@
+.Button {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.Button:focus-visible:not(.Button:active) {
+  outline: 1px solid gray;
+}
+
+.HideImage {
+  visibility: hidden;
+}

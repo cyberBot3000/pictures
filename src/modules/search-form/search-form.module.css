@@ -1,0 +1,74 @@
+.SearchForm {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: .5em;
+  width: 36%;
+  min-width: 358px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+.InputContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #eeeeee;
+  border-radius: 0.8em;
+  padding: 0.8em 0.5em;
+  width: fit-content;
+  gap: 0.3em;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.Input {
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  flex-grow: 1;
+  flex-shrink: 0;
+  cursor: text;
+}
+
+.Input::placeholder {
+  color: #9c9c9c;
+}
+
+.Cross {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  line-height: 0px;
+  cursor: pointer;
+}
+
+.Cross:focus-visible {
+  outline: 1px solid gray;
+}
+
+.Find {
+  padding: 0 1em;
+  background-color: #eb0c0c;
+  border-radius: 0.8em;
+  outline: none;
+  border: none;
+  flex-shrink: 1;
+  flex-grow: 0;
+  cursor: pointer;
+  transition: background-color ease .3s;
+}
+
+.Find:hover, .Find:focus-visible {
+  background-color: #C30000;
+}
+
+@media (max-width: 572px) {
+  .SearchForm {
+    width: 90%;
+    min-width: none;
+  }
+}

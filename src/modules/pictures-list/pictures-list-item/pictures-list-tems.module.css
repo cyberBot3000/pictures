@@ -4,6 +4,7 @@
   outline: none;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .Button:focus-visible:not(.Button:active) {

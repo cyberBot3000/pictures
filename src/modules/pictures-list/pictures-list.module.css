@@ -1,18 +1,48 @@
-.PicturesList {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1em;
-  width: 50%;
+.PicturesListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2em;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 
+.PicturesList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1em;
+  width: 100%;
+}
+
 .PictureContainer {
-  height: 200px;
+  height: 300px;
 }
 
 .PictureContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 1120px) {
+  .PicturesListContainer {
+    width: 80%;
+  }
+  .PictureContainer {
+    height: 250px;
+  }
+}
+
+@media (max-width: 572px) {
+  .PicturesListContainer {
+    width: 90%;
+  }
+  .PicturesList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .PictureContainer {
+    height: 200px;
+  }
 }

@@ -1,4 +1,4 @@
-import { ModalWindow } from '@/shared/ui/modal-window/modal-widnow-component';
+import { ModalWindow } from '@/shared/ui/components/modal-window';
 import { usePictureModalController } from './picture-modal-controller';
 import { useOnEscapeClick } from '@/shared/ui/hooks';
 

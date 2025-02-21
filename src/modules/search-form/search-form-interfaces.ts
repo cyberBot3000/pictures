@@ -1,5 +1,4 @@
 export interface SearchFormProvidedProps {
-  onFormSubmit: () => void;
-  onInputChange: (value: string) => void;
+  onFormSubmit: (searchQuery: string) => void;
   searchQuery: string;
 }

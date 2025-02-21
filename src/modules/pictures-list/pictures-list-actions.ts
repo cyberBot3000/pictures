@@ -28,7 +28,7 @@ export const useUpdatePictures = () => {
           dispatch(setPicturesPage(currPage + 1));
         })
         .finally(() => {
-          setIsAdditionalPicturesLoading(false);
+          dispatch(setIsAdditionalPicturesLoading(false));
         });
     }
   }, [currPage, dispatch, query, totalPages]);

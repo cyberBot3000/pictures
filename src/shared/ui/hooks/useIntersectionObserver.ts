@@ -1,6 +1,10 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react';
 
-export const useIntersectionObserver = (intersectionCallback: () => void, elemToObserve: RefObject<Element | null>) => {
+export const useIntersectionObserver = (
+  intersectionCallback: () => void,
+  elemToObserve: RefObject<Element | null>,
+  options?: IntersectionObserverInit
+) => {
   const observerLoader = useRef<IntersectionObserver | null>(null);
 
   const observerCallback = useCallback(
@@ -17,7 +21,7 @@ export const useIntersectionObserver = (intersectionCallback: () => void, elemTo
       observerLoader.current.disconnect();
     }
 
-    observerLoader.current = new IntersectionObserver(observerCallback);
+    observerLoader.current = new IntersectionObserver(observerCallback, options);
 
     if (elemToObserve.current) {
       observerLoader.current.observe(elemToObserve.current);
@@ -25,5 +29,5 @@ export const useIntersectionObserver = (intersectionCallback: () => void, elemTo
     return () => {
       observerLoader.current?.disconnect();
     };
-  }, [elemToObserve, observerCallback]);
+  }, [elemToObserve, observerCallback, options]);
 };

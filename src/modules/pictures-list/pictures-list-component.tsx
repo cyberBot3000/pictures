@@ -3,14 +3,15 @@ import { useIntersectionObserver } from '@/shared/ui/hooks';
 import { usePicturesListController } from './pictures-list-controller';
 import { PicturesListItem } from './pictures-list-item';
 import { PLACEHOLDERS_ARR } from './pictures-list-constants';
+import { ImagePlaceholder } from '@/shared/ui/components/image-placeholder';
+import { OBSERVER_OPTIONS } from './pictures-list-component-constants';
 
 import styles from './pictures-list.module.css';
-import { ImagePlaceholder } from '@/shared/ui/components/image-placeholder';
 
 export const PicturesList = () => {
   const { isPicturesLoading, pictures, updatePictures, isAdditionalPicturesLoading } = usePicturesListController();
   const lastItem = useRef<HTMLDivElement | null>(null);
-  useIntersectionObserver(updatePictures, lastItem);
+  useIntersectionObserver(updatePictures, lastItem, OBSERVER_OPTIONS);
 
   return (
     <div className={styles.PicturesListContainer}>
@@ -19,8 +20,8 @@ export const PicturesList = () => {
       <div className={styles.PicturesList}>
         {!isPicturesLoading && !!pictures.length && (
           <>
-            {pictures.map((picture, i) => (
-              <PicturesListItem picture={picture} key={picture.id} ref={i === pictures.length - 1 ? lastItem : null} />
+            {pictures.map((picture) => (
+              <PicturesListItem picture={picture} key={picture.id} />
             ))}
             {isAdditionalPicturesLoading &&
               PLACEHOLDERS_ARR.map((placeholder) => (
@@ -31,6 +32,7 @@ export const PicturesList = () => {
           </>
         )}
       </div>
+      <div ref={lastItem}></div>
     </div>
   );
 };
